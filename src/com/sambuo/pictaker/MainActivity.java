@@ -1,8 +1,5 @@
 package com.sambuo.pictaker;
 
-import com.kinvey.android.Client;
-import com.kinvey.android.callback.KinveyPingCallback;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -17,17 +14,6 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		final Client mKinveyClient = new Client.Builder("kid_PTxf3dWkUO", "c41dcceb19d24cf09f347c30397fea6d", this.getApplicationContext()).build();
-		
-		mKinveyClient.ping(new KinveyPingCallback() {
-		    public void onFailure(Throwable t) {
-		        Log.e("Test", "Kinvey Ping Failed", t);
-		    }
-		    public void onSuccess(Boolean b) {
-		        Log.d("Test", "Kinvey Ping Success");
-		    }
-		});
 		
 		final Button button = (Button) findViewById(R.id.buttonTakePicture);
         button.setOnClickListener(new View.OnClickListener() {
